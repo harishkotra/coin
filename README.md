@@ -8,6 +8,12 @@ No paragraph. No "it depends". No 400 tokens of hedging. The model has no langua
 
 ![The result card](assets/screenshot.png)
 
+https://github.com/user-attachments/assets/e32254d4-2983-401d-aa68-6d487c1ec594
+
+<img width="1440" height="1600" alt="coin-result" src="https://github.com/user-attachments/assets/0a5ad081-4b32-4475-a3be-21df0453a2cb" />
+<img width="1440" height="1200" alt="coin-guessing" src="https://github.com/user-attachments/assets/709f28e5-f1f5-4dd6-8449-698bdbba71e0" />
+<img width="1440" height="1600" alt="coin-card" src="https://github.com/user-attachments/assets/49d16a22-6d44-4ad3-89fb-2c7a0b46e8a0" />
+
 ---
 
 ## Table of contents
