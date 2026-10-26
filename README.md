@@ -303,8 +303,3 @@ Each of these is a real extension, not a wish.
 Apache-2.0. [LICENSE](LICENSE) holds the full text. [NOTICE](NOTICE) carries the attribution the license requires: the decision model and the `pplx_decider` reference implementation are Perplexity AI's work, running on the Qwen3.5-4B architecture from Alibaba Group, both Apache-2.0. Neither the checkpoint nor the vendored source is distributed in this repository; both are downloaded at setup and excluded from version control.
 
 Copyright 2026 Harish Kotra.
-
----
-
-Built By Harish Kotra · [harishkotra.me](https://harishkotra.me)
-Checkout my other builds · [dailybuild.xyz](https://dailybuild.xyz)
