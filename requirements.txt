@@ -1,0 +1,8 @@
+torch
+torchvision
+transformers
+safetensors
+pillow
+huggingface_hub
+fastapi
+uvicorn

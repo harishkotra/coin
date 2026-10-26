@@ -1,0 +1,44 @@
+# --- model + venv: 9 GB of weights, never in git ---
+ckpt/
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# --- local data: questions asked on this machine ---
+data/
+*.db
+*.db-wal
+*.db-shm
+*.sqlite
+*.sqlite3
+
+# --- logs + downloads ---
+*.log
+dl.log
+curl.log
+server.log
+*.incomplete
+.cache/
+
+# --- editor / os ---
+.DS_Store
+.vscode/
+.idea/
+*.swp
+*~
+
+# --- env + secrets ---
+.env
+.env.*
+!.env.example
+*.pem
+
+# --- unpublished writing: blog drafts stay local ---
+docs/
+
+# --- build artifacts ---
+coin.zip
+dist/
+build/

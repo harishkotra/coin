@@ -1,0 +1,18 @@
+Coin
+Copyright 2026 Harish Kotra
+
+This product includes software developed by Perplexity AI, Inc.
+
+  pplx-decider-flash-v1.2, a decision model and its pplx_decider reference
+  implementation, licensed under the Apache License, Version 2.0.
+  https://huggingface.co/perplexity-ai/pplx-decider-flash-v1.2
+
+This product runs on the Qwen3.5-4B architecture from Alibaba Group,
+licensed under the Apache License, Version 2.0.
+  https://huggingface.co/Qwen/Qwen3.5-4B
+
+Neither the model checkpoint nor the vendored reference implementation is
+distributed in this repository. Both are downloaded by the user at setup time
+into ckpt/, which is excluded from version control. Anyone redistributing a
+build of this application that includes those files must carry the notices
+required by Section 4 of the Apache License.

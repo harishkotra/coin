@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 400" width="960" height="400" role="img" aria-labelledby="coin-arch-title coin-arch-desc" font-family="system-ui, -apple-system, Segoe UI, Helvetica, Arial, sans-serif">
+  <title id="coin-arch-title">Coin request path</title>
+  <desc id="coin-arch-desc">A browser posts a yes or no question to a FastAPI server, which asks a CoinEngine four questions in one batch, forwards them through a 4B decision model on the GPU, and returns one probability, storing the read in SQLite for the public wall.</desc>
+
+  <defs>
+    <marker id="coin-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#8A8880"/>
+    </marker>
+    <marker id="coin-arrow-accent" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#E4552B"/>
+    </marker>
+    <marker id="coin-arrow-dim" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#5A5953"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="960" height="400" fill="#0C0C0D"/>
+
+  <text x="32" y="44" fill="#8A8880" font-size="11" letter-spacing="3.2" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">COIN</text>
+  <text x="80" y="44" fill="#5A5953" font-size="11" letter-spacing="0.6" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">one read, four passes, zero output tokens</text>
+
+  <!-- connectors drawn first so lines sit behind boxes -->
+  <path d="M 200 130 L 248 130" stroke="#8A8880" stroke-width="1.5" marker-end="url(#coin-arrow)" fill="none"/>
+  <rect x="196" y="112" width="56" height="15" fill="#0C0C0D"/>
+  <text x="224" y="124" text-anchor="middle" fill="#8A8880" font-size="10" letter-spacing="1.4" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">DECIDE</text>
+
+  <path d="M 432 130 L 480 130" stroke="#8A8880" stroke-width="1.5" marker-end="url(#coin-arrow)" fill="none"/>
+  <rect x="428" y="112" width="56" height="15" fill="#0C0C0D"/>
+  <text x="456" y="124" text-anchor="middle" fill="#8A8880" font-size="10" letter-spacing="1.4" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">4 ASKS</text>
+
+  <path d="M 664 130 L 712 130" stroke="#E4552B" stroke-width="1.5" marker-end="url(#coin-arrow-accent)" fill="none"/>
+  <rect x="658" y="112" width="60" height="15" fill="#0C0C0D"/>
+  <text x="688" y="124" text-anchor="middle" fill="#E4552B" font-size="10" letter-spacing="1.4" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">PREFILL</text>
+
+  <path d="M 340 172 L 340 264" stroke="#5A5953" stroke-width="1.5" marker-end="url(#coin-arrow-dim)" fill="none"/>
+  <rect x="350" y="208" width="52" height="15" fill="#0C0C0D"/>
+  <text x="352" y="220" fill="#5A5953" font-size="10" letter-spacing="1.4" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">INSERT</text>
+
+  <path d="M 248 302 L 116 302 Q 108 302 108 294 L 108 180 Q 108 172 116 172" stroke="#5A5953" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#coin-arrow-dim)" fill="none"/>
+  <rect x="150" y="290" width="44" height="15" fill="#0C0C0D"/>
+  <text x="152" y="302" fill="#5A5953" font-size="10" letter-spacing="1.4" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">WALL</text>
+
+  <!-- nodes -->
+  <g>
+    <rect x="32" y="88" width="168" height="84" rx="6" fill="#141416" stroke="#26262B"/>
+    <rect x="32" y="88" width="4" height="84" rx="2" fill="#3C3C42"/>
+    <text x="52" y="118" fill="#EFECE4" font-size="16" font-weight="600">Browser</text>
+    <text x="52" y="138" fill="#8A8880" font-size="11" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">web/app.js</text>
+    <text x="52" y="155" fill="#5A5953" font-size="11" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">no framework</text>
+  </g>
+
+  <g>
+    <rect x="248" y="88" width="184" height="84" rx="6" fill="#141416" stroke="#26262B"/>
+    <rect x="248" y="88" width="4" height="84" rx="2" fill="#3C3C42"/>
+    <text x="268" y="118" fill="#EFECE4" font-size="16" font-weight="600">FastAPI server</text>
+    <text x="268" y="138" fill="#8A8880" font-size="11" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">app/server.py</text>
+    <text x="268" y="155" fill="#5A5953" font-size="11" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">:8077 · 1 read at a time</text>
+  </g>
+
+  <g>
+    <rect x="480" y="88" width="184" height="84" rx="6" fill="#141416" stroke="#26262B"/>
+    <rect x="480" y="88" width="4" height="84" rx="2" fill="#3C3C42"/>
+    <text x="500" y="118" fill="#EFECE4" font-size="16" font-weight="600">CoinEngine</text>
+    <text x="500" y="138" fill="#8A8880" font-size="11" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">app/engine.py</text>
+    <text x="500" y="155" fill="#5A5953" font-size="11" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">3 phrasings + evidence</text>
+  </g>
+
+  <g>
+    <rect x="712" y="76" width="200" height="108" rx="6" fill="#17130F" stroke="#E4552B"/>
+    <text x="732" y="104" fill="#EFECE4" font-size="16" font-weight="600">pplx-decider-flash</text>
+    <text x="732" y="124" fill="#A3A199" font-size="11" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">Qwen3.5-4B backbone</text>
+    <text x="732" y="141" fill="#A3A199" font-size="11" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">255-code readout head</text>
+    <text x="732" y="164" fill="#E4552B" font-size="10" letter-spacing="1.2" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">MPS · BF16 · ~3s</text>
+  </g>
+
+  <g>
+    <rect x="248" y="264" width="184" height="76" rx="6" fill="#141416" stroke="#26262B"/>
+    <text x="268" y="292" fill="#EFECE4" font-size="16" font-weight="600">SQLite</text>
+    <text x="268" y="311" fill="#8A8880" font-size="11" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">data/coin.db</text>
+    <text x="268" y="328" fill="#5A5953" font-size="11" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">question + 3 numbers</text>
+  </g>
+
+  <text x="32" y="376" fill="#5A5953" font-size="10.5" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">the pasted situation is never written to disk</text>
+</svg>

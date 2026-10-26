@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Coin — an oracle that admits when it doesn't know</title>
+<meta name="description" content="Ask a yes or no question. A 4B decision model running on a Mac Mini returns one calibrated number instead of a paragraph, and calls it a coin flip when it cannot tell." />
+<meta property="og:title" content="Coin — an oracle that admits when it doesn't know" />
+<meta property="og:description" content="One number. No paragraph. It says coin flip when it is a coin flip." />
+<meta name="theme-color" content="#0C0C0D" />
+<link rel="stylesheet" href="/styles.css" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='13' fill='none' stroke='%23E4552B' stroke-width='3'/%3E%3C/svg%3E" />
+</head>
+<body>
+
+<header class="topbar">
+  <div class="mark">COIN</div>
+  <div class="meta" id="meta">4B · on-device</div>
+</header>
+
+<main>
+  <section class="hero">
+    <h1>Ask a yes or no question.</h1>
+    <p class="sub">You get one number and one bar. No paragraph. When the honest answer is a coin flip, it says so.</p>
+  </section>
+
+  <section class="ask" aria-labelledby="asklabel">
+    <form id="form" autocomplete="off">
+      <label class="sr" for="q" id="asklabel">Your yes or no question</label>
+      <input id="q" name="q" type="text" maxlength="220" required
+             placeholder="Should I quit my job to build this?"
+             aria-describedby="hint" />
+
+      <div class="ctx-wrap">
+        <button type="button" class="ghost" id="ctx-toggle" aria-expanded="false" aria-controls="ctx-panel">
+          Add the situation
+        </button>
+        <div id="ctx-panel" hidden>
+          <label class="sr" for="ctx">Context the model should read</label>
+          <textarea id="ctx" rows="4" maxlength="6000"
+            placeholder="Paste the facts it should weigh: numbers, timeline, what you have tried."></textarea>
+          <p class="hint" id="ctxhint">More context means a better read. No context means it is guessing, and it will tell you that.</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <button class="primary" id="submit" type="submit">
+          <span class="lbl">Flip</span>
+        </button>
+        <p class="hint" id="hint">Three readings of the same question, plus a check of how much evidence it actually has.</p>
+      </div>
+    </form>
+  </section>
+
+  <section id="result" class="result" aria-live="polite" hidden>
+    <div class="verdict-line">
+      <span class="verdict" id="verdict">LEANS YES</span>
+      <span class="verdict-note" id="verdict-note"></span>
+    </div>
+
+    <div class="prob" id="prob">62<span class="pct">%</span></div>
+    <p class="qecho" id="qecho"></p>
+
+    <div class="track" role="img" aria-labelledby="prob">
+      <div class="fill" id="fill"></div>
+      <div class="notch" title="Coin flip"></div>
+    </div>
+    <div class="axis">
+      <span>0</span><span class="mid">coin flip</span><span>100</span>
+    </div>
+
+    <p class="sentence" id="sentence"></p>
+
+    <dl class="readout">
+      <div><dt>evidence</dt><dd id="evidence">some</dd></div>
+      <div><dt>stability</dt><dd id="stability">tight</dd></div>
+      <div><dt>readings</dt><dd id="readings">3 phrasings</dd></div>
+      <div><dt>spread</dt><dd id="spread">0.04</dd></div>
+    </dl>
+
+    <div class="actions">
+      <button class="primary" id="share" type="button">Share the card</button>
+      <button class="ghost" id="again" type="button">Ask another</button>
+    </div>
+    <p class="hint" id="disclose"></p>
+  </section>
+
+  <section class="how" aria-labelledby="howh">
+    <h2 id="howh">What you are reading</h2>
+    <div class="how-grid">
+      <div>
+        <h3>No text is generated</h3>
+        <p>This model has no language head. It reads your text once and returns probabilities over answer codes. Zero output tokens, so there is no paragraph to talk you into an answer.</p>
+      </div>
+      <div>
+        <h3>Three phrasings</h3>
+        <p>The same question is asked three different ways. If the readings drift apart, the card says the number is unstable instead of hiding it.</p>
+      </div>
+      <div>
+        <h3>An evidence check</h3>
+        <p>A fourth pass scores how much checkable detail is actually in your text. A confident read on no evidence is still a guess, and it says so.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="wall" aria-labelledby="wallh">
+    <div class="wall-head">
+      <h2 id="wallh">The closest calls</h2>
+      <div class="tabs" role="tablist">
+        <button role="tab" class="tab on" data-sort="closest" aria-selected="true">Closest to 50</button>
+        <button role="tab" class="tab" data-sort="recent" aria-selected="false">Newest</button>
+      </div>
+    </div>
+    <ol class="wall-list" id="wall-list"></ol>
+    <p class="empty" id="wall-empty" hidden>Nobody has asked anything yet. The wall fills up as people flip.</p>
+  </section>
+</main>
+
+<footer>
+  <div class="byline">
+    <span>Built By Harish Kotra</span>
+    <a href="https://harishkotra.me" target="_blank" rel="noopener">harishkotra.me</a>
+  </div>
+  <div class="byline">
+    <span>Checkout my other builds</span>
+    <a href="https://dailybuild.xyz" target="_blank" rel="noopener">dailybuild.xyz</a>
+  </div>
+</footer>
+
+<script src="/app.js"></script>
+</body>
+</html>
